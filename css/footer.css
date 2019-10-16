@@ -5,8 +5,8 @@ html, body{
     font-family: 'Lora',serif;
 }
 
-#footer{ 
-    position: absolute;
+#footer{
+    position: relative;
     background:#dad9d9;
     height:300px;
     width: 74%;
@@ -17,6 +17,7 @@ html, body{
 
 #footer #footer-content{
     position: relative;
+    margin: 20px;
     width: 100%;
     display: flex;
 }
@@ -140,4 +141,3 @@ html, body{
     justify-content: center;
     padding-top: 5px;
 }
-
