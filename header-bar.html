@@ -28,6 +28,100 @@
             </ul>
         </div>
     </div>
+    <div id="mySignInModal" class="modal">
+
+    	<!-- Insert code for Sign In modal here -->
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2 class="black">Welcome Back!</h2>
+                <hr>
+            </div>
+
+            <div class="modal-body">
+
+                <form id="mySignInForm">
+
+
+                    <div >
+                        <label>Username</label><br>
+                        <input type="text" class="formSignUp" name="formSignIn"  placeholder=" Enter Username" required="">
+                    </div>
+
+                    <div >
+                        <label>Password</label><br>
+                        <input type="password" name="PASSWORD" class="formSignIn" placeholder="Enter Password" required="">
+                    </div >
+
+
+                </form>
+                <button id="SignInbtn" class="formSignIn" form="mySignInForm">Sign In</button>
+
+                <div class="modal-footer">
+                    <span><strong>Not a member?</strong> <a class="hyper" href="#" id="newmodal"><strong>Sign Up</strong></a></span>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <div id="myModal" class="modal">
+
+    	<!-- Insert code for Sign Up modal here -->
+
+        <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2 class="black">Get Started</h2>
+                    <hr>
+                </div>
+
+                <div class="modal-body">
+
+                    <form id="mySignUpForm">
+
+                        <div >
+                            <label>Full Name</label><br>
+                            <input type="text" class="formSignUp" name="name"  placeholder="Enter Full Name" required="">
+                        </div>
+
+                        <div >
+                            <label>Username</label><br>
+                            <input type="text" class="formSignUp" name="username"  placeholder=" Enter Username" required="">
+                        </div>
+
+                        <div >
+                            <label>Password</label><br>
+                            <input type="password" name="PASSWORD" class="formSignUp" placeholder="Enter Password" required="">
+                        </div >
+                        <div >
+                            <label>Confirm Password</label><br>
+                            <input type="password" name="confirm password" class="formSignUp" placeholder="Confirm Password" required="">
+                        </div >
+
+                    </form>
+                    <button id="btn-margin" class="formSignUp" form="mySignUpForm">Sign Up</button>
+
+                </div>
+
+
+            </div>
+
+
+
+    </div>
+    
+	<!-- Place all Javascript for header in this file -->
+	<script src="js\header.js"></script>
+
 
   </body>
 </html>
