@@ -3,7 +3,7 @@ body
     margin: 0;
     padding: 0;
     text-align: center;
-    background: linear-gradient(rgba(184, 184, 211, 0.5),rgba(150, 130, 16, 0.5)),url(../images_file/C.jpg);
+    background: linear-gradient(rgba(184, 184, 211, 0.5),rgba(150, 130, 16, 0.5)),url(../images/C.jpg);
   background-size: cover;
   background-position: center;
   font-family:sans-serif;
