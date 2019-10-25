@@ -1,0 +1,178 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.product-detail-container{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+
+#product-detail-conn{
+  margin-left: 5%;
+  margin-right: 5%;
+}
+#pro-left-coln{
+  position: relative;
+  width: 65%;
+  height: 100%;
+  float: left;
+}
+#pro-right-coln{
+  position: relative;
+  width: 35%;
+  height: 100%;
+  float: right;
+}
+.template{
+  position: relative;
+  background: #F2F2F2;
+  margin:20px;
+  box-shadow: 9px 9px 0px #2E2E2E;
+  color: #000;
+  border-radius: 7px;
+  font-weight: bold;
+  border: 2px solid #000;
+  padding-top: 4px;
+  overflow: hidden;
+}
+
+
+.template:hover .pro-duc-img{
+transition: 0.5s;
+  border: 6px solid #FFF;
+}
+@media only screen and (max-width:1200px){
+
+  .template{
+    height: 38%;
+    width: 280px;
+  }
+}
+
+@media only screen and (max-width:700px){
+
+  .template{
+    height: 35%;
+    width: 400px;
+  }
+
+}
+  @media only screen and (max-width:300px){
+
+    .template{
+      height: 35%;
+      width: 90%;
+    }
+}
+#pro-left-coln-inner{
+  position: relative;
+  height: 600px;
+  margin: 5%;
+}
+#pro-det-image-container{
+  position: relative;
+  width: 100%;
+  height: 60%;
+}
+#pro-det-image-conn{
+  display: flex;
+  width:400%;
+  height: 100%;
+  background: red;
+}
+.pro-duct-img{
+  position: relative;
+  width: 25%;
+  border: 6px solid #F2F2F2;
+  left: 0%;
+}
+.pro-duc-image{
+  position: relative;
+  object-fit: cover;
+  width: 100%;
+}
+
+.icon{
+  position: absolute;
+  top:32%;
+  z-index: 1;
+  color: white;
+}
+.prev{
+  left: 6px;
+}
+.next{
+  right: 6px;
+}
+
+.prev:hover, .next:hover{
+  cursor: pointer;
+}
+
+.tags{
+  font-size: 1em;
+}
+.template:hover #place,
+.template:hover #upload-time{
+  filter: opacity(1);
+}
+#offer-price{
+  color : green;
+  font-size: 2em;
+}
+#offpri{
+  font-size: 1.3em;
+}
+#market-price{
+  color: red;
+}
+
+#saving-price{
+  color: orange;
+}
+
+#place, #upload-time{
+  position: absolute;
+  bottom: 5px;
+  font-size: .7em;
+  filter:opacity(.5);
+}
+
+#place{
+  left: 7px;
+  margin: 6px;
+}
+#upload-time{
+  right: 7px;
+  margin: 6px;
+}
+#pro-det-detail{
+  position: relative;
+  padding: 20px;
+}
+#pro-sel-location, #pro-det-description{
+  position: relative;
+  width: auto;
+  height: 350px;
+}
+.pro-up-loc,
+.pro-up-loc-name,
+.product-heading{
+  font-size: 1.2em;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.pro-map-location, .product-detailed-desc{
+  margin: 20px;
+  height: 70%;
+  width: 90%;
+  position: absolute;
+  border: 1px solid black;
+}
+.product-detailed-desc{
+  border: none;
+  overflow-y: scroll;
+}
