@@ -9,9 +9,9 @@ html, body{
     position: relative;
     background:#dad9d9;
     height:300px;
-    width: 74%;
+    width: 100%;
     bottom: 0;
-    left: 13%;
+    left: 0;
     border: 1px solid black;
 }
 
@@ -43,7 +43,7 @@ html, body{
 
 #footer-about-sg{
     position: relative;
-    width:230px;
+    width:330px;
     text-align: justify;
 }
 #contact span{
