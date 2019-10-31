@@ -1,3 +1,4 @@
+
 var signInModal = document.getElementById("mySignInModal");
 var Sign_In_btn = document.getElementById("Sign_in");
 var SignInSpan = document.getElementsByClassName("close")[0];
@@ -15,27 +16,25 @@ SignInSpan.onclick = function() {
 
 
 var modal = document.getElementById("myModal");
-var btn = document.getElementById("newmodal");
+var btn = document.getElementById("Sign_up");
 var span = document.getElementsByClassName("close")[1];
 
 btn.onclick = function() {
-	signInModal.style.display = "none";
-   modal.style.display = "block";
+    modal.style.display = "block";
 }
 
 
 span.onclick = function() {
-  modal.style.display = "none";
+    modal.style.display = "none";
 }
 
 
 
-//var hyper=document.getElementsByClassName("hyper")[0];
-
-//hyper.onclick = function() {
-  //  signInModal.style.display = "none";
-   // modal.style.display = "block";
-//}
+var hyper=document.getElementsByClassName("hyper")[0];
+hyper.onclick = function() {
+    signInModal.style.display = "none";
+    modal.style.display = "block";
+}
 
 
 
