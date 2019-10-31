@@ -3,31 +3,40 @@
   <head>
     <meta charset="utf-8">
     <title>Client Side InterFace</title>
-    <link rel="stylesheet" href="/css/client-product-upload.css">
-    <link rel="stylesheet" href="/javascript/client-product-upload.js">
+    <link rel="stylesheet" href="css/ad-upload.css">
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
   </head>
   <body>
-    <div id="product-page-container">
-      <div id="product-upload-container">
-        <form class="" action="index.html" method="post">
-        <div id="ad-header-container">
+    <div id="product-page-container" class="product-page-container">
+      <img src="images/aduploadbackimage1.jpg" alt="">
+      <div id="product-upload-container" class="product-upload-container">
+        <form class="" action="product-detail.html" method="post">
+        <div id="ad-header-container" class="ad-detailed-container">
           <div id="ad-header">
-            <h2> <span>Post Your Product</span> </h2>
+            <h1> <span>Post Your Ad</span> </h1>
           </div>
         </div>
-        <div id="post-ad-container">
+        <div id="post-ad-container" class="ad-detailed-container">
           <div id="post-ad-details">
-            <div id="post-ad"><h3>Enter Ad details<h3></div>
+            <div id="post-ad"><h2>Enter Ad details<h2></div>
             <div id="ad-detail-container">
               <div id="ad-detail">
                 <div id="ad-detail-title"><span>Ad Title*<span></div>
-                <div id="enter-ad-detail">
-                  <input type="text" name="ad-title" value="" placeholder="Enter Ad title here..." maxlength="40" />
+                <div id="enter-ad-detail" class="form-group">
+                  <input class="form-control" type="text" name="ad-title" value="" placeholder="Enter Ad title here..." maxlength="40" />
                 </div>
                 <div id="ad-description">Ad Description</div>
                 <div id="enter-ad-description">
                     <input type="text" name="ad-title" value="" placeholder="Enter Ad description..." style="height:120px; width:500px;">
-                  </div>
+                </div>
+                <div id="ad-detail-title"><span>Product OFfer Price*<span></div>
+                <div id="enter-ad-price" class="form-group">
+                  <input class="form-control" type="text" name="ad-oripri" value="" placeholder="Enter Offer Price..." maxlength="40" />
+                </div>
+                <div id="ad-detail-title"><span>Market Price of the Product<span></div>
+                <div id="enter-ad-marpri" class="form-group">
+                  <input class="form-control" type="text" name="ad-marpri" value="" placeholder="Enter Market Price..." maxlength="40" />
+                </div>
                 <div id="catagory-container">
                   <div id="ad-catagory">Catagory</div>
                   <div id="select-catagory">
@@ -93,9 +102,10 @@
               </div>
             </div>
           </div>
+          <br>
         </div>
-        <div id="Location-container">
-          <div id="loc-con"> <h3>Location</h3> </div>
+        <div id="Location-container"  class="ad-detailed-container">
+          <div id="loc-con"> <h2>Location</h2> </div>
           <!-- <div id="postee-location-type">
             <ul>
               <li id="manual-location">
@@ -171,6 +181,7 @@
                 </select>
               </div>
             </div>
+            <br>
           </div>
           <!--
           <div id="select-current-location">
@@ -197,10 +208,10 @@
             </div>
           </div> -->
         </div>
-        <div id="details-to-show-container">
+        <div id="details-to-show-container"  class="ad-detailed-container">
           <div id="postee-details">
             <div id="detail-to-show">
-              <h3>Personal Details Privacy</h3>
+              <h2>Personal Details Privacy</h2>
             </div>
             <div id="personal-details">
               <ul>
@@ -219,8 +230,8 @@
                   </div>
                 </li>
                 <li id="student-privacy">
-                  <div id="student-identity-privacy">
-                    <span>Graduation identity Privacy</span>
+                  <div id="student-identity-privacy"><br>
+                    <span style="font-size: 1.1em;" > &nbsp &nbsp &nbsp Graduation identity Privacy</span>
                     <ul>
                       <li>
                         <div id="student-stream">
@@ -237,7 +248,7 @@
                       <li>
                         <div id="hostel-detail-privacy">
                           <input type="radio" name="hostel-detail-privacy" value="">
-                          <span>Show Hostel Detail/Day Scholar</span>
+                          <span>Show Hostel Detail/Day Scholar</span><br><br>
                         </div>
                       </li>
                     </ul>
@@ -247,27 +258,35 @@
             </div>
           </div>
         </div>
-        <div id="accept-pp-container">
+        <div id="accept-pp-container"  class="ad-detailed-container">
           <div id="check-policy-box">
                 <input type="checkbox" name="accept_terms" id="accept_terms" value="1">
                 <b>I ACCEPT the <a target="_blank" href="privacy-policy.html">Terms of Use & Privacy Policy</a></b>
-                <label for="accept_terms" generated="false" class="error"></label><br>
+                <label for="accept_terms" generated="false" class="error"></label><br><br>
                 <div style="padding-left:5px;">By checking the box above, you acknowledge and represent that you have read and reviewed the Terms of Use in its entirety and agree to be bound by its terms.</div>
-                <small>All fields marked by <span style="color:red;">*</span> must be completed</small>
+                <br> <small>All fields marked by <span style="color:red;">*</span> must be completed</small>
           </div>
         </div>
         <div class="submission-container">
           <div id="submission-presub-conn">
-            <div id="preview-conn">
-              <input type="submit" name="Preview" value="Preview">
-            </div>
-            <div id="submit-conn">
-              <input type="submit" name="submit" value="Post My Ad">
-            </div>
+            <ul>
+              <li>
+                <div id="preview-conn"  class="ad-detailed-container">
+                  <a href="product-detail.html">
+                  <input type="text" name="Preview" value="&nbsp &nbsp &nbsp &nbsp Preview" style="margin-left: 50px; background: #F2F2F2; border: none;"></input></a>
+                </div>
+              </li>
+              <li>
+                <div id="submit-conn"  class="ad-detailed-container">
+                <input type="submit" name="submit" value="Post My Ad"  style="margin:10px 85px;">
+                  </div>
+              </li>
+            </ul>
           </div>
         </div>
       </form>
       </div>
     </div>
+    
   </body>
 </html>
