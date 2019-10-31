@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Student Corner</title>
     <link href='css\header.css' rel='stylesheet' type='text/css'>
-    <link href='css\modal.css' rel='stylesheet' type='text/css'>	  
+    <link href='css\modal.css' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <div class="main-headerr" >
@@ -20,11 +20,12 @@
 
 
             <ul class="navigation">
-                <li><a><img src="graphics\cart-logo.png"></a></li>
-                <li><a>SELL</a></li>
-                <li><a>MY ORDERS</a></li>
-                <li><a>MY ACCOUNT</a></li>
-                <li><a>Sign In/Up</a></li>
+                <li><a href="wish-list.php"><img src="graphics\cart-logo.png"></a></li>
+                <li><a href="ad-upload.php">SELL</a></li>
+                <li><a href="wish-list.php">Wish list</a></li>
+                <li><a href="user-account.php">MY ACCOUNT</a></li>
+                <li><a id="Sign_up" class="topButtons" style="display:none;">Sign Up</a></li>
+                <li><a id="Sign_in" class="topButtons">Sign In</a></li>
 
             </ul>
         </div>
@@ -60,7 +61,7 @@
                 <button id="SignInbtn" class="formSignIn" form="mySignInForm">Sign In</button>
 
                 <div class="modal-footer">
-                    <span><strong>Not a member?</strong> <a class="hyper" href="#" id="newmodal"><strong>Sign Up</strong></a></span>
+                    <span><strong>Not a member?</strong> <a class="hyper" href="#"><strong>Sign Up</strong></a></span>
                 </div>
 
             </div>
@@ -119,7 +120,7 @@
 
 
     </div>
-    
+
 	<!-- Place all Javascript for header in this file -->
 	<script src="javascript\header.js"></script>
 
