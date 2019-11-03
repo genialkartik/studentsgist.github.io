@@ -136,6 +136,50 @@ transition: 0.5s;
 .template:hover #upload-time{
   filter: opacity(1);
 }
+
+#pro-seller-det{
+  position: relative;
+  padding: 10px 13px;
+}
+#pro-sellername,
+#show-additional-det{
+  position: relative;
+  top: -92px;
+  left: 110px;
+  cursor: pointer;
+}
+#msgtoseller{
+  position: relative;
+  left: 90%;
+  top: -130px;
+}
+#show-additional-det{
+  position: relative;
+  top: -165px;
+}
+#show-add-head{
+  font-size: 1.2em;
+  background-color:rgb(0, 225, 255);
+  border-radius: .25em;
+  border:1px solid black;
+  font-weight: bold;
+  width: max-content;
+  padding: 5px;
+}
+#show-add-head:hover{
+  background-color: white;
+  box-shadow: 6px 6px 0px black;
+  transition: .5s;
+  cursor: pointer;
+}
+.shw-ad-det{
+  font-size: .9em;
+  color: rgba(0,0,0,.76);
+}
+#msgtoseller{
+  cursor:pointer;
+}
+
 #offer-price{
   color : green;
   font-size: 2em;
