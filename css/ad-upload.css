@@ -10,8 +10,11 @@
   color: black;
   margin: 0;
   padding: 20px;
+  z-index: 0;
+  display: block;
+  transition: 1s;
 }
-.product-page-container img{
+#product-page-container img{
   position: fixed;
   top:0;
   left: 0;
@@ -20,10 +23,11 @@
   height: 100%;
   filter: opacity(.7);
 }
-.product-upload-container{
+#product-upload-container{
   position: relative;
   padding-left:20%;
   margin-right: 20%;
+
 }
 .ad-detailed-container{
   background: #F2F2F2;
@@ -64,14 +68,14 @@ h2{
   padding: 0;
   margin: 0;
 }
-#preview-conn a input,
+#preview-conn input,
 #submit-conn input{
   background: #F2F2F2;
   border: none;
   font-size:1em;
   cursor: pointer;
 }
-#preview-conn:hover a input,
+#preview-conn:hover input,
 #submit-conn:hover input{
   color: black;
   font-size: 1.1em;
