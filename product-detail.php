@@ -3,7 +3,7 @@ $conn = mysqli_connect('localhost','root','','studentsgist');
 if (isset($_GET['clicked'])) {
       $clicked = (int)$_GET['clicked'];
 } else {
-      $clicked = 3;
+      $clicked = 9;
 }
 	$qry = "SELECT * FROM SGDATABASE WHERE adid=$clicked";
 	$result = mysqli_query($conn, $qry) or die(mysqli_error($conn));
@@ -24,7 +24,7 @@ if (isset($_GET['clicked'])) {
     <div class="product-detail-container">
       <div id="product-detail-conn">
         <div id="pro-left-coln">
-          <div class="template" id=pro-duct-name-heading>
+          <div class="template" id="pro-duct-name-heading">
             <div id="pro-duct-heading-inner">
               <span> <h1><?php echo $row['adtitle'] ?></h1> </span>
             </div>
@@ -34,21 +34,39 @@ if (isset($_GET['clicked'])) {
             <span class="icon next" onclick="procurrentimg(-25);">&#11208;</span>
             <div id="pro-det-image-container">
               <div id="pro-det-image-conn">
-                    <div class="pro-duct-img">
-                      <img class="pro-duc-image" src="<?php echo $row['image1'] ?>" alt="">
-                    </div>
-                    <div class="pro-duct-img">
-                      <img class="pro-duc-image" src="<?php echo $row['image2'] ?>" alt="">
-                    </div>
-                    <div class="pro-duct-img">
-                      <img class="pro-duc-image" src="<?php echo $row['image1'] ?>" alt="">
-                    </div>
-                    <div class="pro-duct-img">
-                      <img class="pro-duc-image" src="<?php echo $row['image3'] ?>" alt="">
-                    </div>
-                  </div>
+                <div class="pro-duct-img">
+                  <img class="pro-duc-image" src="<?php echo $row['image1'] ?>" alt="">
+                </div>
+                <div class="pro-duct-img">
+                  <img class="pro-duc-image" src="<?php echo $row['image2'] ?>" alt="">
+                </div>
+                <div class="pro-duct-img">
+                  <img class="pro-duc-image" src="<?php echo $row['image1'] ?>" alt="">
+                </div>
+                <div class="pro-duct-img">
+                  <img class="pro-duc-image" src="<?php echo $row['image3'] ?>" alt="">
                 </div>
               </div>
+            </div>
+          </div>
+          <div id="pro-seller-det" >
+            <div class="template" style="padding: 10px 30px; height:230px;">
+              <div id="pro-duct-seller-heading"><h1><u>Seller's Detail </u></h1></div>
+              <span id="pro-seller-proimg"> <img src="images/picture1.png" height="109px" width="109px" alt=""></span>
+              <span class="prosellercon">
+                <div id="pro-sellername"><h2> Kartik Tyagi </h2></div>
+              </span>
+              <span id="msgtoseller"> <img src="graphics/msg2.png" alt="" height="74px" width="74px"> </span>
+              <div id="show-additional-det">
+                <div id="show-add-head">Show Additional Details</div><br>
+                <div class="shw-ad-det" id="show-con-no">&#8226; Contact Number:<span>+91-9876543210</span></div>
+                <div class="shw-ad-det" id="show-email">&#8226; Email: <span>kyubtau@coldmail.comb</span> </div>
+                <div class="shw-ad-det" id="show-course">&#8226; Course: <span>BTech CSE</span> </div>
+                <div class="shw-ad-det" id="show-grad-yr">&#8226; Year of Study: <span>3rd year</span> </div>
+                <div class="shw-ad-det" id="show-residence">&#8226; I'm a: <span>Hostler/Day Scholar</span> </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div id="pro-right-coln">
           <div id="pro-right-coln-inner">
@@ -75,9 +93,6 @@ if (isset($_GET['clicked'])) {
                   <span><?php echo $row['addesc'] ?></span>
                 </div>
               </div>
-            </div>
-            <div id="pro-seller-det">
-
             </div>
             <div id="pro-sel-location" class="template">
               <div class="pro-map-loc" class="pro-map-loc">
