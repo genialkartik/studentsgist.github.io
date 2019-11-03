@@ -9,14 +9,15 @@ $conn = mysqli_connect("localhost", "root", "", "studentsgist" );
     <link href='css\header.css' rel='stylesheet' type='text/css'>
     <link rel = "stylesheet" type = "text/css" href = "css/footer.css" />
     <link rel="stylesheet" href="css/template.css">
+    <link href='css\modal.css' rel='stylesheet' type='text/css'>
     <script src="javascript/template.js"></script>
     <script src="javascript/indexjs.js"></script>
   </head>
   <body>
     <!--Header -->
-    <div class="main-headerr">
+    <div class="main-headerr" >
         <div class="inner-header">
-            <h1>STUDENT<span style="opacity: 1;color:white;">HUB</span></h1>
+            <a href="http://localhost/studentsgist.github.io/index.php"> <h1>STUDENT<span style="opacity: 1;color:white;">HUB</span></h1></a>
             <div class="search-container">
             <form>
             <input type="text" placeholder="Search here"  id="searchtext" >
@@ -27,15 +28,109 @@ $conn = mysqli_connect("localhost", "root", "", "studentsgist" );
 
 
             <ul class="navigation">
-                <li><a><img src="graphics\cart-logo.png"></a></li>
-                <li><a href="ad-upload.php">SELL</a></li>
-                <li><a>MY ORDERS</a></li>
-                <li><a >MY ACCOUNT</a></li>
-                <li><a>Sign In/Up</a></li>
+              <li><a href="http://localhost/studentsgist.github.io/index.php"><img src="graphics\wish list.png"></a></li>
+              <li><a href="ad-upload.php">SELL</a></li>
+              <li><a href="http://localhost/studentsgist.github.io/index.php">Wish list</a></li>
+              <li><a href="http://localhost/studentsgist.github.io/index.php">MY ACCOUNT</a></li>
+              <li><a id="Sign_up" class="topButtons" style="display:none;">Sign Up</a></li>
+              <li><a id="Sign_in" class="topButtons" style="cursor: pointer;">Sign In</a></li>
 
             </ul>
         </div>
     </div>
+    <div id="mySignInModal" class="modal">
+
+    	<!-- Insert code for Sign In modal here -->
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2 class="black">Welcome Back!</h2>
+                <hr>
+            </div>
+
+            <div class="modal-body">
+
+                <form id="mySignInForm">
+
+
+                    <div >
+                        <label>Username</label><br>
+                        <input type="text" class="formSignUp" name="formSignIn"  placeholder=" Enter Username" required="">
+                    </div>
+
+                    <div >
+                        <label>Password</label><br>
+                        <input type="password" name="PASSWORD" class="formSignIn" placeholder="Enter Password" required="">
+                    </div >
+
+
+                </form>
+                <button id="SignInbtn" class="formSignIn" form="mySignInForm">Sign In</button>
+
+                <div class="modal-footer">
+                    <span><strong>Not a member?</strong> <a class="hyper" href="#"><strong>Sign Up</strong></a></span>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <div id="myModal" class="modal">
+
+    	<!-- Insert code for Sign Up modal here -->
+
+        <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2 class="black">Get Started</h2>
+                    <hr>
+                </div>
+
+                <div class="modal-body">
+
+                    <form id="mySignUpForm">
+
+                        <div >
+                            <label>Full Name</label><br>
+                            <input type="text" class="formSignUp" name="name"  placeholder="Enter Full Name" required="">
+                        </div>
+
+                        <div >
+                            <label>Username</label><br>
+                            <input type="text" class="formSignUp" name="username"  placeholder=" Enter Username" required="">
+                        </div>
+
+                        <div >
+                            <label>Password</label><br>
+                            <input type="password" name="PASSWORD" class="formSignUp" placeholder="Enter Password" required="">
+                        </div >
+                        <div >
+                            <label>Confirm Password</label><br>
+                            <input type="password" name="confirm password" class="formSignUp" placeholder="Confirm Password" required="">
+                        </div >
+
+                    </form>
+                    <button id="btn-margin" class="formSignUp" form="mySignUpForm">Sign Up</button>
+
+                </div>
+
+
+            </div>
+
+
+
+    </div>
+
+	<!-- Place all Javascript for header in this file -->
+	<script src="javascript\header.js"></script>
 
 
 <!--Product list container -->
@@ -46,8 +141,14 @@ $conn = mysqli_connect("localhost", "root", "", "studentsgist" );
     <!--Product list templates-->
 
     <?php
+    $noofitemqry  = "SELECT count(1) FROM SGDATABASE";
+    $noofrow = mysqli_query($conn, $noofitemqry) or die(mysqli_error($conn));
+    $noi = mysqli_fetch_array($noofrow);
+    $total = $noi[0];   //no of items in the table
+
+
     $i = 1;
-    while ($i < 9) {
+    do {
     $qry = "SELECT * FROM SGDATABASE where adid=$i";
     $result = mysqli_query($conn, $qry) or die(mysqli_error($conn));
     $row = mysqli_fetch_assoc($result);
@@ -82,69 +183,123 @@ $conn = mysqli_connect("localhost", "root", "", "studentsgist" );
 
   <?php
     $i++;
-    }
+  }while ($i <= $total);
    ?>
   </div>
   </div>
   <br><br>
 
+
+    <!--Load More Button -->
+    <style media="screen">
+      #load-more-container{
+        position: relative;
+        width: 100%;
+        height: 5%;
+      }
+      #load-more-inner{
+        position: relative;
+        width: 10%;
+        left: 43%;
+        margin: 15px;
+      }
+      #loadmorebtn{
+        font-size: 1.2em;
+        padding: 6px 10px;
+        cursor: pointer;
+        background-color:rgb(0, 225, 255);
+      }
+    </style>
+
+
+    <div id="load-more-container">
+      <div id="load-more-inner">
+        <form  action="" method="post">
+          <input id="loadmorebtn" type="submit" name="load-more" value="Load More">
+        </form>
+      </div>
+    </div>
+
+            <?php
+
+            if(isset($_POST['load-more'])){
+              $div = $total/4;
+              $intdiv = intval($div);
+              $rem = $total%4;
+
+
+
+                //echo '<script language="javascript">';
+                //echo 'alert("no of list in 4s:';
+                //echo  intval($divide);
+                //echo '")' ;
+                //echo '</script>';
+
+            }
+             ?>
+
+
+
 <!--Footer -->
-  <div id="footer">
-      <div id="footer-content">
-          <div id="footer-section">
-              <h1 id="logo-text"><span>Student</span> Gist</h1>
-              <div id="footer-about-sg">
-                <p>When you shop online for books thencheck
-                  for ongoing deals for extra discounts & offers,
-                  you can get an access to a number of titles and publishers.
-                </p>
-              </div>
-              <div id="contact">
-                  <span><i class="fas fa-phone">&nbsp; 8427888943</i></span>
-                  <span><i class="fas fa-envelope">&nbsp; info@studentgist.com</i></span>
-                </div>
-                <div id="socials">
-                  <a href="#"><img src="graphics/facebook.png" ></a>
-                  <a href="#"><img src="graphics/insta.png" ></a>
-                  <a href="#"><img src="graphics/github.png" ></a>
-                  <a href="#"><img src="graphics/linkedin.png" ></a>
-                </div>
-              </div>
+<div id="footer">
+    <div id="footer-content">
+        <div id="footer-section">
+            <h1 id="logo-text"><span>Student</span> Gist</h1>
+            <div id="footer-about-sg">
+              <p>'Worry less, Buy more' <br>
+                It's good to get new things first. But Sometimes,
+                You just runming out of money or in lack of trust to buy expensive things.<br>
+                Hurrah!! We owe you this one. Make a deal with a seller under your convenience
+                and get your dream thing. Right Now! <br>
 
-              <div id="footer-section">
-                <div id="quick-link">
-                  <h2>Quick Links</h2>
-                  <ul>
-                      <a href="#"><li> Home </li></a>
-                      <a href="#"><li>About Us</li></a>
-                      <a href="#"><li>Help</li></a>
-                      <a href="#"><li>Privacy Policy</li></a>
-                      <a href="#"><li>Trending</li></a>
-                      <a href="#"><li>Wish List</li></a>
-                    </ul>
-                  </div>
-                </div>
-                <div id="footer-section">
-                  <div id="contact-form">
-                    <h2>Contact Use</h2>
-                    <div id="contact-post">
-                      <form method="POST">
-                          <input type="email" name="email" class="text-input contact-input" placeholder="Your email address...."><br>
-                          <textarea name="message"  class="text-input contact-input" placeholder="Your message..."></textarea><br>
-                          <button type="submit" class="btn btn-big contact-btn">
-                              <i class="fas fa-envelope"></i>
-                              send
-                            </button>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+              </p>
+              <br>
+          </div>
+            <div id="contact">
+                <span><i class="">8427888943</i></span>
+                <span><i class="">info@studentgist.com</i></span>
+            </div>
+            <div id="socials">
+                <a href="#"><img src="graphics/facebook.png" ></a>
+                <a href="#"><img src="graphics/insta.png" ></a>
+                <a href="#"><img src="graphics/github.png" ></a>
+                <a href="#"><img src="graphics/linkedin.png" ></a>
+            </div>
+        </div>
 
-                  <div id="footer-bottom">
-                    <span>StudentGist.com | Design By: Shalini, Pragya, Kartik</span>
-                  </div>
+        <div id="footer-section">
+            <div id="quick-link">
+                <h2>Quick Links</h2>
+                <ul>
+                    <a href="http://localhost/studentsgist.github.io/index.php"><li> Home </li></a>
+                    <a href="aboutus.html"><li>About Us</li></a>
+                    <a href="contactform.html"><li>Help</li></a>
+                    <a href="privacy-policy.html"><li>Privacy Policy</li></a>
+                    <a href="http://localhost/studentsgist.github.io/index.php"><li>Trending</li></a>
+                    <a href="http://localhost/studentsgist.github.io/index.php"><li>Wish List</li></a>
+                </ul>
+            </div>
+        </div>
+        <div id="footer-section">
+            <div id="contact-form">
+                <h2>Contact Use</h2>
+                <div id="contact-post">
+                    <form method="POST">
+                        <input type="email" name="email" class="text-input contact-input" placeholder="Your email address...."><br>
+                        <textarea name="message"  class="text-input contact-input" placeholder="Your message..."></textarea><br>
+                        <button type="submit" class="btn btn-big contact-btn">
+                            <i class="fas fa-envelope"></i>
+                            send
+                        </button>
+                    </form>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer-bottom">
+        <span>StudentGist.com | Design By: Shalini, Pragya, Kartik</span>
+    </div>
+</div>
 
   </body>
 </html>
