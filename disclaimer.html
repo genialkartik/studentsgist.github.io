@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>StudentGist</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+        <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+        <link href='css\header.css' rel='stylesheet' type='text/css'><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel = "stylesheet" type = "text/css" href = "css/footer.css" />
+        <link href='css\modal.css' rel='stylesheet' type='text/css'>
+    <style>
+body:before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+
+  display: block;
+  background-image: url("images/pic8.jpg");
+  background-size:cover;
+  width: 100%;
+  height: 100%;
+
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+
+#thick {
+  font-weight: bold;
+  margin: 60px;
+}
+h1.thicker {
+  font-weight: bold;
+  text-align: center;
+}
+.about-footer{
+  text-align: center;
+}
+    </style>
+
+  </head>
+
+  <body class="bg-image">
+    <div class="main-headerr" >
+        <div class="inner-header">
+            <a href="http://localhost/studentsgist.github.io/index.php"> <h1>STUDENT<span style="opacity: 1;color:white;"> Gist</span></h1></a>
+            <div class="search-container">
+            <form>
+            <input type="text" placeholder="Search here"  id="searchtext" >
+            <!-- <input type="submit" id="mybtn" value="<img src='searchh.png'>"> -->
+            <input type="image" src="graphics\searchh.png" alt="Submit" width="48" height="48" id="mybtn">
+            </form>
+            </div>
+
+
+            <ul class="navigation">
+              <li style="filter: grayscale(1);"><a href="wishlist.php"><img src="graphics\wish list.png"></a></li>
+              <li><a href="ad-upload.php">SELL</a></li>
+              <li><a href="http://localhost/studentsgist.github.io/index.php">My Account</a></li>
+              <li><a id="Sign_up" class="topButtons" style="display:none;">Sign Up</a></li>
+              <li><a id="Sign_in" class="topButtons" style="cursor: pointer;">Sign In</a></li>
+
+            </ul>
+        </div>
+    </div>
+
+
+    <div id="mySignInModal" class="modal">
+
+    	<!-- Insert code for Sign In modal here -->
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2 class="black">Welcome Back!</h2>
+                <hr>
+            </div>
+
+            <div class="modal-body">
+
+                <form id="mySignInForm">
+
+
+                    <div >
+                        <label>Username</label><br>
+                        <input type="text" class="formSignUp" name="formSignIn"  placeholder=" Enter Username" required="">
+                    </div>
+
+                    <div >
+                        <label>Password</label><br>
+                        <input type="password" name="PASSWORD" class="formSignIn" placeholder="Enter Password" required="">
+                    </div >
+
+
+                </form>
+                <button id="SignInbtn" class="formSignIn" form="mySignInForm">Sign In</button>
+
+                <div class="modal-footer">
+                    <span><strong>Not a member?</strong> <a class="hyper" href="#"><strong>Sign Up</strong></a></span>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <div id="myModal" class="modal">
+
+    	<!-- Insert code for Sign Up modal here -->
+
+        <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2 class="black">Get Started</h2>
+                    <hr>
+                </div>
+
+                <div class="modal-body">
+
+                    <form id="mySignUpForm">
+
+                        <div >
+                            <label>Full Name</label><br>
+                            <input type="text" class="formSignUp" name="name"  placeholder="Enter Full Name" required="">
+                        </div>
+
+                        <div >
+                            <label>Username</label><br>
+                            <input type="text" class="formSignUp" name="username"  placeholder=" Enter Username" required="">
+                        </div>
+
+                        <div >
+                            <label>Password</label><br>
+                            <input type="password" name="PASSWORD" class="formSignUp" placeholder="Enter Password" required="">
+                        </div >
+                        <div >
+                            <label>Confirm Password</label><br>
+                            <input type="password" name="confirm password" class="formSignUp" placeholder="Confirm Password" required="">
+                        </div >
+
+                    </form>
+                    <button id="btn-margin" class="formSignUp" form="mySignUpForm">Sign Up</button>
+
+                </div>
+
+
+            </div>
+
+
+
+    </div>
+
+	<!-- Place all Javascript for header in this file -->
+	<script src="javascript\header.js"></script>
+
+
+    <div class="container">
+      <div class="row-fluid">
+      	<div class="span12">
+      		<h1 class="thicker" style=" color:black;">DISCLAMIER US</h1>
+      		<div class="thumbnail content-black">
+      			<div class="caption">
+              <p id="thick" style=" color:black;">
+                  The Student Gist Book Store is a student-to-student Internet marketplace providing college students with the opportunity to buy, sell and trade college textbooks, participate in auctions, post classified ads, provide teacher evaluations, and buy products for college. The book store will enable students to buy, sell, and trade used textbooks directly to other students, by-passing the university bookstores. By selling textbooks to other students, the seller can receive more money than the bookstore will pay and the buyer can pay less than the bookstore charges. It increases the value of book in terms of money.
+              </p>
+              <p id="thick" style=" color:black;">
+                  The Student Gist Book Store will establish itself as the leading online student-to-student marketplace by combining extensive market-specific expertise with Internet technologies to generate revenue while creating a win-win solution for students. The book store will achieve market dominance by utilizing extensive domain experience, a local grass roots marketing strategy, an exceptional management team, superior software, and the formation of strategic alliances, memberships and partnerships with companies within the college market.
+              </p><br><br><br>
+      				<p id="thick" style=" color:black;">Books play a very important role in everyone’s life, especially in a students’ life.  They are our best friends because they inspire us to do great things in life and overcome our failures. We learn a lot of things from them. Books are our best companions as they provide us knowledge unconditionally without asking anything in return.
+      				</p>
+					  <p id="thick" style=" color:black;">
+				      Friendship with good books makes you a good person. In case when there is no one for your help, only these will become your companion in life. Books will always be there for you in your adverse times and bring positive value to our life.<br><br>
+					  </p>
+					  <p id="thick" style=" color:black;">
+					    For students, it is worth saying that:
+            </p>
+            <p id="thick" style=" color:black;"><br>
+              “A room without books is like a body without a soul.”</p>
+             <p id="thick" style=" color:black;"> A good book is like a good friend; the more you read it, the more interesting it will be. They have always benefit to the reader.
+					  </p><br><br>
+					  <p id="thick" style=" color:black;">
+                Reading books and novels can also improve our memory, reduce stress, and increase mental power as well as knowledge. They also help us to improve vocabulary, concentration power & make our thinking skills stronger.
+                <br><br>Books are considered as a “store of information” using which we can gain information by reading at any time. Reading is something that will always increase knowledge. Whether we study or teach anyone, knowledge goes on increasing with time.
+            </p>
+      			</div>
+      		</div>
+      	</div>
+      </div>
+
+      <hr>
+
+      <div class="about-footer">
+        <p>&copy; Company 2018</p>
+      </div>
+
+    </div>
+
+    <!--Footer -->
+    <div id="footer">
+        <div id="footer-content">
+            <div id="footer-section">
+                <h1 id="logo-text"><span>Student</span> Gist</h1>
+                <div id="footer-about-sg">
+                  <p>'Worry less, Buy more' <br>
+                    It's good to get new things first. But Sometimes,
+                    You just runming out of money or in lack of trust to buy expensive things.
+                    Hurrah!! We owe you this one. Make a deal with a seller under your convenience
+                    and get your dream thing. Right Now!
+
+                  </p>
+
+              </div>
+                <div id="contact">
+                    <span><i class="">8427888943</i></span>
+                    <span><i class="">info@studentgist.com</i></span>
+                </div>
+            </div>
+
+            <div id="footer-section">
+                <div id="quick-link">
+                    <h2>Quick Links</h2>
+                    <ul>
+                        <a href="index.php"><li> Home </li></a>
+                        <a href="aboutus.html"><li>About Us</li></a>
+                        <a href="contactform.html"><li>Help</li></a>
+                        <a href="privacy-policy.html"><li>Privacy Policy</li></a>
+                        <a href="disclaimer.html"><li>Disclaimer</li></a>
+                        <a href="wishlist.php"><li>Wish List</li></a>
+                    </ul>
+                </div>
+            </div>
+            <div id="footer-section">
+                <div id="contact-form">
+                    <h2>Contact Us</h2>
+                    <div id="contact-post">
+                      <form >
+                          <input type="email" name="email" class="text-input contact-input" placeholder="Your email address...."><br>
+                          <textarea name="message"  class="text-input contact-input" placeholder="Your message..."></textarea><br>
+                          <input style="cursor:pointer" type="button" class="btn btn-big contact-btn" onclick="alert('Message Sent!')" value="Send">
+                          </input>
+                      </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer-bottom">
+            <span>StudentGist.com | Design By: Shalini, Pragya, Kartik</span>
+        </div>
+    </div>
+
+
+  </body>
+</html>
