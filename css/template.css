@@ -1,9 +1,11 @@
 * {
   margin: 0;
+    font-family: 'Signika Negative';
   padding: 0;
 }
 
 .template-container{
+  font-family: 'Signika Negative';
   position: relative;
   width: 100%;
   height: 100%;
@@ -13,15 +15,15 @@
 
 #template-inner-container{
   display: inline-block;
-  margin-left: 6%;
+  margin-left: 5%;
 }
 
 #template{
   position: relative;
   height: 40%;
-  width: 20%;
+  width: 21.5%;
   float: left;
-  margin:20px;
+  margin:18px;
   border: 2px solid #000;
   border-radius: 7px;
   background: #F2F2F2;
@@ -31,6 +33,7 @@
   font-weight: bold;
   padding-top: 4px;
   overflow: hidden;
+  z-index: 0;
 }
 
 #template:hover{
@@ -49,7 +52,7 @@ transition: 0.5s;
 
   #template{
     height: 38%;
-    width: 280px;
+    width: 300px;
   }
 }
 
@@ -57,7 +60,7 @@ transition: 0.5s;
 
   #template{
     height: 35%;
-    width: 400px;
+    width: 420px;
   }
 
 }
@@ -65,8 +68,13 @@ transition: 0.5s;
 
     #template{
       height: 35%;
-      width: 90%;
+      width: 91%;
     }
+}
+
+.templateclckd{
+  text-decoration: none;
+  color: black;
 }
 
 #product-images{
@@ -123,7 +131,6 @@ transition: 0.5s;
   color : green;
 
 }
-
 #market-price{
   color: red;
 }
@@ -131,6 +138,7 @@ transition: 0.5s;
 #saving-price{
   color: orange;
 }
+
 
 #place, #upload-time{
   position: absolute;
@@ -145,4 +153,18 @@ transition: 0.5s;
 }
 #upload-time{
   right: 7px;
+}
+#cartheart{
+  position:relative;
+  float:left;
+  left:11px;
+  cursor: pointer;
+  padding: 0px 1px;
+  background: #F2F2F2;
+  border: none;
+
+}
+#cartheart:hover{
+  color: red;
+  background: white;
 }
