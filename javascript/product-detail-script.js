@@ -21,3 +21,10 @@ var imageposition = document.getElementsByClassName("pro-duct-img"); //changing 
     }
   }
 }
+
+//additional detail maintainer
+
+$(".shw-ad-det").hide();
+$("#show-add-head").click(function(){
+  $(".shw-ad-det").toggle(400);
+});
