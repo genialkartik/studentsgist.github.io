@@ -19,5 +19,5 @@ This website doesn't allow selling and purchase of any living being, pets, anima
 
 Developed with 💖 by -
 [Kartik Tyagi](https://github.com/genialkartik)
-Shalini Kumari Rai
-Pragya Srivastava
+Shalini Kumari Rai(https://github.com/shalini8038)
+Pragya Srivastava(https://github.com/pragya2404)
