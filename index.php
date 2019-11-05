@@ -5,19 +5,21 @@ $conn = mysqli_connect("localhost", "root", "", "studentsgist" );
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Student Corner</title>
-    <link href='css\header.css' rel='stylesheet' type='text/css'>
+    <title>Student Gist</title>
+
+    <link href='css\header.css' rel='stylesheet' type='text/css'><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel = "stylesheet" type = "text/css" href = "css/footer.css" />
-    <link rel="stylesheet" href="css/template.css">
     <link href='css\modal.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/template.css">
     <script src="javascript/template.js"></script>
     <script src="javascript/indexjs.js"></script>
   </head>
-  <body>
+  <body style="font-family: "Times New Roman", Times, serif;">
+
     <!--Header -->
     <div class="main-headerr" >
         <div class="inner-header">
-            <a href="http://localhost/studentsgist.github.io/index.php"> <h1>STUDENT<span style="opacity: 1;color:white;">HUB</span></h1></a>
+            <a href="http://localhost/studentsgist.github.io/index.php"> <h1>STUDENT<span style="opacity: 1;color:white;"> Gist</span></h1></a>
             <div class="search-container">
             <form>
             <input type="text" placeholder="Search here"  id="searchtext" >
@@ -28,16 +30,17 @@ $conn = mysqli_connect("localhost", "root", "", "studentsgist" );
 
 
             <ul class="navigation">
-              <li><a href="http://localhost/studentsgist.github.io/index.php"><img src="graphics\wish list.png"></a></li>
+              <li><a href="wishlist.php"><img src="graphics\wish list.png"></a></li>
               <li><a href="ad-upload.php">SELL</a></li>
-              <li><a href="http://localhost/studentsgist.github.io/index.php">Wish list</a></li>
-              <li><a href="http://localhost/studentsgist.github.io/index.php">MY ACCOUNT</a></li>
+              <li><a href="http://localhost/studentsgist.github.io/index.php">My Account</a></li>
               <li><a id="Sign_up" class="topButtons" style="display:none;">Sign Up</a></li>
               <li><a id="Sign_in" class="topButtons" style="cursor: pointer;">Sign In</a></li>
 
             </ul>
         </div>
     </div>
+
+
     <div id="mySignInModal" class="modal">
 
     	<!-- Insert code for Sign In modal here -->
@@ -135,6 +138,9 @@ $conn = mysqli_connect("localhost", "root", "", "studentsgist" );
 
 <!--Product list container -->
 
+
+
+
 <div class="template-container" id="template-container-id">
   <div id="template-inner-container">
 
@@ -154,10 +160,16 @@ $conn = mysqli_connect("localhost", "root", "", "studentsgist" );
     $row = mysqli_fetch_assoc($result);
     ?>
 
-  <a href="product-detail.php?clicked=<?php echo $row['adid'];?>">
+  <a href="product-detail.php?clicked=<?php echo $row['adid'];?>" class="templateclckd">
     <div id="template">
+</a>
+      <h3>
+          <input type="button" name="cartname" id="cartheart" onclick="alert("Added to Wish List")" value="&#x2764;"></input>
 
-      <h3><?php echo $row['adtitle'] ?></h3>
+      <a href="product-detail.php?clicked=<?php echo $row['adid'];?>" class="templateclckd">
+      <?php echo $row['adtitle'] ?>
+      </h3>
+      <a href="product-detail.php?clicked=<?php echo $row['adid'];?>" class="templateclckd">
       <div id="product-images">
           <div class="product-image">
             <img class="pro-img" src="<?php echo $row['image1'] ?>" alt="">
@@ -166,10 +178,19 @@ $conn = mysqli_connect("localhost", "root", "", "studentsgist" );
       <div id="product-detail">
         <span class="tags" id="offpri">OFFER PRICE: </span>
         <span class="tags" id="offer-price">Rs.<?php echo $row['adop'] ?></span>
+      </a>
+        <span  id="likeit">
+          <button type="button" class="like-btn" >
+            <i class="fa fa-thumbs-up"  onclick="likeclckd()">
+              <span id="ilikedit">0</span>
+            </i>
+          </button>
+        </span>
         <br>
+        <a href="product-detail.php?clicked=<?php echo $row['adid'];?>" class="templateclckd">
         <span class="tags" id="marpri">Market Price: </span>
         <span class="tags" id="market-price">Rs. <?php echo $row['admp'] ?> </span>
-        <span class="tags" id="savpri"> &nbsp;&nbsp;&nbsp;(Save: </span>
+        <span class="tags" id="savpri">(Save: </span>
         <span class="tags" id="saving-price">Rs. <?php echo $row['admp']-$row['adop'] ?></span>
         <span class="tags" id="savpri">)</span>
         <div class="foot">
@@ -180,6 +201,8 @@ $conn = mysqli_connect("localhost", "root", "", "studentsgist" );
       </div>
     </div>
   </a>
+
+
 
   <?php
     $i++;
@@ -209,23 +232,35 @@ $conn = mysqli_connect("localhost", "root", "", "studentsgist" );
         cursor: pointer;
         background-color:rgb(0, 225, 255);
       }
+      #likeit{
+        position: relative;
+        float: right;
+        top: -5px;
+        z-index: 1;
+        margin-right: 10px;
+      }
+      #ilikedit{
+        right: 24px;
+        padding: 0px 2px;
+        font-size: .8em;
+      }
     </style>
 
-
+<!--
     <div id="load-more-container">
       <div id="load-more-inner">
         <form  action="" method="post">
-          <input id="loadmorebtn" type="submit" name="load-more" value="Load More">
+          <input id="loadmorebtn" type="button" name="load-more" value="Load More">
         </form>
       </div>
     </div>
-
+-->
             <?php
 
-            if(isset($_POST['load-more'])){
-              $div = $total/4;
-              $intdiv = intval($div);
-              $rem = $total%4;
+          //  if(isset($_POST['load-more'])){
+          //    $div = $total/4;
+          //    $intdiv = intval($div);
+          //    $rem = $total%4;
 
 
 
@@ -235,7 +270,7 @@ $conn = mysqli_connect("localhost", "root", "", "studentsgist" );
                 //echo '")' ;
                 //echo '</script>';
 
-            }
+          //  }
              ?>
 
 
@@ -271,27 +306,25 @@ $conn = mysqli_connect("localhost", "root", "", "studentsgist" );
             <div id="quick-link">
                 <h2>Quick Links</h2>
                 <ul>
-                    <a href="http://localhost/studentsgist.github.io/index.php"><li> Home </li></a>
+                    <a href="index.php"><li> Home </li></a>
                     <a href="aboutus.html"><li>About Us</li></a>
                     <a href="contactform.html"><li>Help</li></a>
                     <a href="privacy-policy.html"><li>Privacy Policy</li></a>
-                    <a href="http://localhost/studentsgist.github.io/index.php"><li>Trending</li></a>
-                    <a href="http://localhost/studentsgist.github.io/index.php"><li>Wish List</li></a>
+                    <a href="disclaimer.html"><li>Disclaimer</li></a>
+                    <a href="wishlist.php"><li>Wish List</li></a>
                 </ul>
             </div>
         </div>
         <div id="footer-section">
             <div id="contact-form">
-                <h2>Contact Use</h2>
+                <h2>Contact Us</h2>
                 <div id="contact-post">
-                    <form method="POST">
-                        <input type="email" name="email" class="text-input contact-input" placeholder="Your email address...."><br>
-                        <textarea name="message"  class="text-input contact-input" placeholder="Your message..."></textarea><br>
-                        <button type="submit" class="btn btn-big contact-btn">
-                            <i class="fas fa-envelope"></i>
-                            send
-                        </button>
-                    </form>
+                  <form >
+                      <input type="email" name="email" class="text-input contact-input" placeholder="Your email address...."><br>
+                      <textarea name="message"  class="text-input contact-input" placeholder="Your message..."></textarea><br>
+                      <input style="cursor:pointer" type="button" class="btn btn-big contact-btn" onclick="alert('Message Sent!')" value="Send">
+                      </input>
+                  </form>
                 </div>
             </div>
         </div>
@@ -300,6 +333,39 @@ $conn = mysqli_connect("localhost", "root", "", "studentsgist" );
         <span>StudentGist.com | Design By: Shalini, Pragya, Kartik</span>
     </div>
 </div>
+
+<?php
+
+  $addcartids = 0;
+  $cartarray = [];
+  if (isset($_GET['cn'])) {
+        $clicked = (int)$_GET['cn'];
+
+        ?>
+            <script language="javascript">
+                alert("<?php echo $clicked; ?>");
+           </script>';
+
+                   <?php
+  }
+  else {
+        $clicked = 1;
+  }
+
+
+
+?>
+<script type="text/javascript">
+
+
+
+    var i;
+    i=0;
+    function likeclckd(){
+      i++;
+      document.getElementById('ilikedit').innerHTML=i;
+    }
+</script>
 
   </body>
 </html>
