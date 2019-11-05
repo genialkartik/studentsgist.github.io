@@ -1,4 +1,6 @@
-
+* {
+  font-family: 'Signika Negative';
+}
 #ad-preview-box{
   position: absolute;
   width: 56%;
