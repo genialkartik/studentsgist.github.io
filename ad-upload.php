@@ -9,13 +9,45 @@ $conn = mysqli_connect('localhost','root','','studentsgist');
     <title>Client Side InterFace</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="javascript/product-detail-script.js"></script>
+    <script src="javascript/client-product-upload.js"></script><link href='css\header.css' rel='stylesheet' type='text/css'><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel = "stylesheet" type = "text/css" href = "css/footer.css" />
+    <link href='css\modal.css' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/ad-upload.css">
     <link rel="stylesheet" href="css/ad-upload-preview.css">
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
 
   </head>
   <body>
+
+
+        <!--Header -->
+        <div class="main-headerr" style="position:relative; z-index: 2;filter: opacity(1);">
+            <div class="inner-header">
+                <a href="http://localhost/studentsgist.github.io/index.php"> <h1>STUDENT<span style="opacity: 1;color:white;"> Gist</span></h1></a>
+                <div class="search-container">
+                <form>
+                <input type="text" placeholder="Search here"  id="searchtext" >
+                <!-- <input type="submit" id="mybtn" value="<img src='searchh.png'>"> -->
+                <input type="image" src="graphics\searchh.png" alt="Submit" width="48" height="48" id="mybtn">
+                </form>
+                </div>
+
+
+                <ul class="navigation">
+                  <li><a href="wishlist.php"><img src="graphics\wish list.png"></a></li>
+                  <li><a href="ad-upload.php">SELL</a></li>
+                  <li><a href="http://localhost/studentsgist.github.io/index.php">My Account</a></li>
+                  <li><a id="Sign_up" class="topButtons" style="display:none;">Sign Up</a></li>
+                  <li><a id="Sign_in" class="topButtons" style="cursor: pointer;">Sign In</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+
+      
+    	<!-- Place all Javascript for header in this file -->
+    	<script src="javascript\header.js"></script>
 
       <style media="screen">
       #closeit{
@@ -153,20 +185,20 @@ $conn = mysqli_connect('localhost','root','','studentsgist');
             <div id="ad-detail-container">
               <div id="ad-detail">
                 <div id="enter-ad-detail" class="form-group">
-                  <input class="form-control" ng-model="adtit" type="text" name="ad-title" placeholder="Enter Product Name..." maxlength="40" />
+                  <input class="form-control" ng-model="adtit" type="text" name="ad-title" placeholder="Enter Product Name..." maxlength="40" required/>
                   <span style="font-weight: normal; font-size:.9em;"><b>Ad Title:</b> {{adtit}}</span>
                 </div>
                 <div id="ad-description">Ad Description</div>
                 <div id="enter-ad-description">
-                  <textarea  name="ad-descrip" rows="8" cols="130" placeholder="Enter Ad description..." ></textarea>
+                  <textarea type="text" row="12" coln="40" name="ad-descrip" ng-model="addesc" placeholder="Enter Ad description..."  required></textarea>
                 </div>
                 <div id="ad-detail-title"><span>Product OFfer Price*<span></div>
                 <div id="enter-ad-price" class="form-group">
-                  <input class="form-control" type="text" name="ad-oripri" value="" placeholder="Enter Offer Price..." maxlength="40" ng-model="adopri" /><span> Rs. {{adopri}}</span>
+                  <input class="form-control" type="text" name="ad-oripri" value="" placeholder="Enter Offer Price..." maxlength="40" ng-model="adopri"  required/><span> Rs. {{adopri}}</span>
                 </div>
                 <div id="ad-detail-title"><span>Market Price of the Product<span></div>
                 <div id="enter-ad-marpri" class="form-group">
-                  <input class="form-control" type="text" name="ad-marpri" value="" placeholder="Enter Market Price..." maxlength="40" ng-model="admpri"/><span> Rs. {{admpri}}</span>
+                  <input class="form-control" type="text" name="ad-marpri" value="" placeholder="Enter Market Price..." maxlength="40" ng-model="admpri" required/><span> Rs. {{admpri}}</span>
                 </div>
 
                 <div id="catagory-container">
@@ -258,13 +290,13 @@ $conn = mysqli_connect('localhost','root','','studentsgist');
                 <div id="ad-images-container">
                   <div id="ad-imgages-upload"><span>Upload Images*<span></div>
                   <div id="ad-image1" class="form-group">
-                    <input class="form-control" type="file" name="img1" >
+                    <input class="form-control" type="file" name="img1"  required>
                   </div>
                   <div id="ad-image1" class="form-group">
-                    <input class="form-control" type="file" name="img2">
+                    <input class="form-control" type="file" name="img2" required>
                   </div>
                   <div id="ad-image1" class="form-group">
-                    <input class="form-control" type="file" name="img3">
+                    <input class="form-control" type="file" name="img3" required>
                   </div>
                 </div>
               </div>
@@ -287,32 +319,6 @@ $conn = mysqli_connect('localhost','root','','studentsgist');
               </li>
             </ul>
           </div>  -->
-
-          <script type="text/javascript">
-          $(document).ready(function(){
-
-              $(".select-city").hide();
-              $("#sel-city").hide();
-              $("#select-state").on('change',function(){
-                var temp1 = $(this).val();
-                $("#sel-city").show();
-                $(".select-city").hide();
-                $("#smlc"+temp1).show();
-              });
-            });
-
-            $(document).ready(function(){
-
-                $(".por-sub-cat").hide();
-                $("#ad-sub-catagory").hide();
-                $("#product-catagory").on('change',function(){
-                  var temp = $(this).val();
-                  $("#ad-sub-catagory").show();
-                  $(".por-sub-cat").hide();
-                  $("#type-"+temp).show();
-                });
-              });
-          </script>
 
 
 
@@ -467,7 +473,7 @@ $conn = mysqli_connect('localhost','root','','studentsgist');
         </div>
         <div id="accept-pp-container"  class="ad-detailed-container">
           <div id="check-policy-box">
-                <input type="checkbox" name="accept_terms" id="accept_terms" value="1">
+                <input type="checkbox" name="accept_terms" id="accept_terms" value="1"  required>
                 <b>I ACCEPT the <a target="_blank" href="privacy-policy.html">Terms of Use & Privacy Policy</a></b>
                 <label for="accept_terms" generated="false" class="error"></label><br><br>
                 <div style="padding-left:5px;">By checking the box above, you acknowledge and represent that you have read and reviewed the Terms of Use in its entirety and agree to be bound by its terms.</div>
@@ -493,6 +499,65 @@ $conn = mysqli_connect('localhost','root','','studentsgist');
       </form>
       </div>
     </div>
+  </div><br><br><br>
+
+  <!--Footer -->
+  <div id="footer">
+      <div id="footer-content">
+          <div id="footer-section">
+              <h1 id="logo-text"><span>Student</span> Gist</h1>
+              <div id="footer-about-sg">
+                <p>'Worry less, Buy more' <br>
+                  It's good to get new things first. But Sometimes,
+                  You just runming out of money or in lack of trust to buy expensive things.<br>
+                  Hurrah!! We owe you this one. Make a deal with a seller under your convenience
+                  and get your dream thing. Right Now! <br>
+
+                </p>
+                <br>
+            </div>
+              <div id="contact">
+                  <span><i class="">8427888943</i></span>
+                  <span><i class="">info@studentgist.com</i></span>
+              </div>
+              <div id="socials">
+                  <a href="#"><img src="graphics/facebook.png" ></a>
+                  <a href="#"><img src="graphics/insta.png" ></a>
+                  <a href="#"><img src="graphics/github.png" ></a>
+                  <a href="#"><img src="graphics/linkedin.png" ></a>
+              </div>
+          </div>
+
+          <div id="footer-section">
+              <div id="quick-link">
+                  <h2>Quick Links</h2>
+                  <ul>
+                      <a href="index.php"><li> Home </li></a>
+                      <a href="aboutus.html"><li>About Us</li></a>
+                      <a href="contactform.html"><li>Help</li></a>
+                      <a href="privacy-policy.html"><li>Privacy Policy</li></a>
+                      <a href="disclaimer.html"><li>Disclaimer</li></a>
+                      <a href="wishlist.php"><li>Wish List</li></a>
+                  </ul>
+              </div>
+          </div>
+          <div id="footer-section">
+              <div id="contact-form">
+                  <h2>Contact Us</h2>
+                  <div id="contact-post">
+                    <form >
+                        <input type="email" name="email" class="text-input contact-input" placeholder="Your email address...."><br>
+                        <textarea name="message"  class="text-input contact-input" placeholder="Your message..."></textarea><br>
+                        <input style="cursor:pointer" type="button" class="btn btn-big contact-btn" onclick="alert('Message Sent!')" value="Send">
+                        </input>
+                    </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div id="footer-bottom">
+          <span>StudentGist.com | Design By: Shalini, Pragya, Kartik</span>
+      </div>
   </div>
 
 
@@ -550,7 +615,9 @@ if(isset($_POST['submit'])){
 	$data = mysqli_query($conn, $query);
 
 	if($data){
-		echo "";
+    echo '<script language="javascript">';
+    echo 'alert("Your Ad has Successfully Posted!")';
+    echo '</script>';
 	}
 	else{
 		echo "error " . mysqli_error($conn);
