@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.template-container{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  overflow-y: scroll;
+}
+
+#template-inner-container{
+  display: inline-block;
+  margin-left: 6%;
+}
+
+#template{
+  position: relative;
+  height: 40%;
+  width: 287px;
+  float: left;
+  margin:20px;
+  border: 2px solid #000;
+  border-radius: 7px;
+  background: #F2F2F2;
+  box-shadow: 0px 0px 0px black;
+  color: #000;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 4px;
+  overflow: hidden;
+  z-index: 0;
+}
+
+#template:hover{
+  transform: scale(1.05);
+  transition: 0.5s;
+  box-shadow: 9px 12px 0px #2E2E2E;
+  background: #fff;
+  color:black;
+}
+
+#template:hover .product-image{
+transition: 0.5s;
+  border: 6px solid #FFF;
+}
+@media only screen and (max-width:1200px){
+
+  #template{
+    height: 38%;
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width:700px){
+
+  #template{
+    height: 35%;
+    width: 420px;
+  }
+
+}
+  @media only screen and (max-width:300px){
+
+    #template{
+      height: 35%;
+      width: 91%;
+    }
+}
+
+.templateclckd{
+  text-decoration: none;
+  color: black;
+}
+
+#product-images{
+  display: flex;
+  width:400%;
+  height: 100%;
+}
+.product-image{
+  position: relative;
+  height: 60%;
+  width: 24%;
+  border: 6px solid #F2F2F2;
+  left: 0%;
+}
+.pro-img{
+  position: relative;
+  height: 250px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.icon{
+  position: absolute;
+  top:32%;
+  z-index: 1;
+  color: white;
+}
+.prev{
+  left: 6px;
+}
+.next{
+  right: 6px;
+}
+
+.prev:hover, .next:hover{
+  cursor: pointer;
+}
+
+#product-detail{
+  position: relative;
+  text-align: left;
+  padding: 7px;
+  top: -40%;
+}
+
+.tags{
+  font-size: 0.8em;
+}
+#template:hover #place,
+#template:hover #upload-time{
+  filter: opacity(1);
+}
+#offer-price{
+  color : green;
+
+}
+#market-price{
+  color: red;
+}
+
+#saving-price{
+  color: orange;
+}
+
+
+#place, #upload-time{
+  position: absolute;
+  bottom: 5px;
+  font-size: .7em;
+  filter:opacity(.5);
+}
+
+#place{
+  left: 7px;
+
+}
+#upload-time{
+  right: 7px;
+}
+#cartheart{
+  position:relative;
+  float:left;
+  left:11px;
+  cursor: pointer;
+  padding: 0px 1px;
+  background: #F2F2F2;
+  border: none; 
+
+}
+#cartheart:hover{
+  color: red;
+  background: white;
+}
