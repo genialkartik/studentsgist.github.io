@@ -1,5 +1,12 @@
+    angular.module("nglike",[]).controller("nglikectrl",function($scope){
+      var x;
+      var templatelist = [
+        { adids = "<?php $row['adid'] ?>", liked: 0 }
+      ];
+      $scope.templatelist = templatelist;
 
-
-function headerfix() {
- document.getElementsByClassName("main-headerr").style.background = "red";
-}
+              $scope.yooilikedit = function (passedid) {
+                  passedid.liked++;
+                  alert("liked");
+              };
+    });
